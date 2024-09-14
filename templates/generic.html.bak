@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+
+<html>
+	<head>
+		<title> {% extends 'base.html' %} {% block title %}Customer Segmentation {% endblock %}</title>
+		<meta charset="utf-8" />
+		<style>
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fbe8e8; /* Light pink background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: auto;
+}
+/* Field styling */
+.field {
+    margin-bottom: 20px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #d25d77; /* Candy pink */
+}
+
+/* Input and select styling */
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ff85a2; /* Candy pink border */
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+select:focus {
+    border-color: #ff6f61; /* Darker candy pink */
+    outline: none;
+}
+
+/* Button styling */
+button {
+    background-color: #ff85a2; /* Candy pink */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff6f61; /* Slightly darker candy pink */
+}
+
+/* Headings */
+h1, h2 {
+    color: #d25d77; /* Candy pink */
+    text-align: center;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+/* Container for specific content */
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+		</style>
+	</head>
+	<body>
+<!-- Main -->
+
+
+{% block content %}
+
+			<h1 class="major">Customer Segmentation</h1>
+					<form method="post" action="{{url_for('get_segment')}}">
+										<div class="fields">
+											<div class="field half">
+												<label for="age">Age</label>
+												<input type="text" name="age" id="age" />
+											</div>
+											<div class="field half">
+												<label for="income">Income</label>
+												<input type="text" name="income" id="income" />
+											</div>
+											<div class="field half">
+												<label for="gender">Gender</label>
+												
+												<select name="gender" id="gender">
+												  <option value="male">Male</option>
+												  <option value="female">Female</option>
+												</select>
+											</div>
+											<div class="field half">
+												<label for="marital_S">Marital Status</label>
+												
+												<select name="marital_s" id="marital_s">
+												  <option value="single">Single</option>
+												  <option value="nonsingle">Non-Single (divorced / separated / married / widowed)</option>
+												</select>
+											</div>
+											<div class="field half">
+												<label for="occupation">Occupation</label>
+												
+													<select name="occupation" id="occupation">
+													  <option value="Unemployed">Unemployed</option>
+													  <option value="Skilled Employee">Skilled Employee</option>
+													  <option value="Highly Qualified Employee">Highly Qualified Employee</option>
+													</select>
+											</div>
+											<div class="field half">
+												<label for="education">Education</label>
+												
+													<select name="education" id="education">
+													  <option value="Other">Other</option>
+													  <option value="University">University</option>
+													  <option value="High School">High School</option>
+													  <option value="Graduate School">Graduate School</option>
+													</select>
+											</div>
+											<div class="field half">
+												<label for="settlementsize">Settlement Size</label>
+												<select name="settlementsize" id="settlementsize">
+													  <option value="Small City">Small City</option>
+													  <option value="Mid-Size City">Mid-Size City</option>
+													  <option value="Big City">Big City</option>
+													</select>
+											</div>
+											
+											
+										</div>
+										<button type ="submit"> Segment </button>
+									</form>
+									<h2>Customer Segment: {{results}} </h2>
+					
+
+    
+{% endblock %}
+
+
+	</body>
+</html>

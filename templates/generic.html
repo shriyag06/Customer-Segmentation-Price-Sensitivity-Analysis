@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+
+<html>
+	<head>
+		<title> {% extends 'base.html' %} {% block title %}Customer Segmentation {% endblock %}</title>
+		<meta charset="utf-8" />
+	
+
+	</head>
+	<body>
+<!-- Main -->
+
+
+{% block content %}
+
+			<h1 class="major">Customer Segmentation</h1>
+					<form method="post" action="{{url_for('get_segment')}}">
+										<div class="fields">
+											<div class="field half">
+												<label for="age">Age</label>
+												<input type="text" name="age" id="age" />
+											</div>
+											<div class="field half">
+												<label for="income">Income</label>
+												<input type="text" name="income" id="income" />
+											</div>
+											<div class="field half">
+												<label for="gender">Gender</label>
+												
+												<select name="gender" id="gender">
+												  <option value="male">Male</option>
+												  <option value="female">Female</option>
+												</select>
+											</div>
+											<div class="field half">
+												<label for="marital_S">Marital Status</label>
+												
+												<select name="marital_s" id="marital_s">
+												  <option value="single">Single</option>
+												  <option value="nonsingle">Non-Single (divorced / separated / married / widowed)</option>
+												</select>
+											</div>
+											<div class="field half">
+												<label for="occupation">Occupation</label>
+												
+													<select name="occupation" id="occupation">
+													  <option value="Unemployed">Unemployed</option>
+													  <option value="Skilled Employee">Skilled Employee</option>
+													  <option value="Highly Qualified Employee">Highly Qualified Employee</option>
+													</select>
+											</div>
+											<div class="field half">
+												<label for="education">Education</label>
+												
+													<select name="education" id="education">
+													  <option value="Other">Other</option>
+													  <option value="University">University</option>
+													  <option value="High School">High School</option>
+													  <option value="Graduate School">Graduate School</option>
+													</select>
+											</div>
+											<div class="field half">
+												<label for="settlementsize">Settlement Size</label>
+												<select name="settlementsize" id="settlementsize">
+													  <option value="Small City">Small City</option>
+													  <option value="Mid-Size City">Mid-Size City</option>
+													  <option value="Big City">Big City</option>
+													</select>
+											</div>
+											
+											
+										</div>
+										<button type ="submit"> Segment </button>
+									</form>
+									<h2>Customer Segment: {{results}} </h2>
+					
+
+    
+{% endblock %}
+
+
+	</body>
+</html>

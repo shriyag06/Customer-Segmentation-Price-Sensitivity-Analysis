@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	
+	<head>
+		<title> {% extends 'base.html' %} {% block title %}Price Optimization Strategies {% endblock %} </title>
+		<meta charset="utf-8" />
+		
+	</head>
+	<body>
+
+
+{% block content %}
+<h1>Discover How Your Customers Respond to Price Changes</h1>
+<p> Understanding how different segments of your customers respond to price changes is crucial for optimizing your pricing strategy. With our Price Sensitivity Analyzer, you can input any price point and instantly determine whether a specific customer segment is elastic or inelastic towards making a purchase.</p>
+<h1>Start Analyzing Now!</h1>
+<h2>Well Off Segment</h2>
+<p>Enter your desired price point below and discover how your customers will respond. Make data-driven decisions to enhance your pricing strategy today.</p>
+<form method="post" action="{{url_for('price')}}">
+<div class="field half">
+<label for="pp">Price Point</label>
+<input type="text" name="pp" id="pp" />
+</div>
+<button type ="submit"> Get Results </button>
+</form>
+
+<p>For the given price point the well-off segment customers are {{ price_result }}. 
+The customers are inelastic till $1.61, which means that you can keep increasing price till $1.61 
+the likelihood of purchasing remains relatively stable.</p>
+
+<h2>Career Focused Segment</h2>
+<form method="post" action="{{url_for('CF_price')}}">
+<div class="field half">
+<label for="pp1">Price Point</label>
+<input type="text" name="pp1" id="pp1" />
+</div>
+<button type ="submit"> Get Results </button>
+</form>
+
+
+{% endblock %}
+
+   
+	</body>
+</html>

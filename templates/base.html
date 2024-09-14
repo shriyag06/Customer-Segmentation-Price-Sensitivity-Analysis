@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}- Customer Behaviour Analysis</title>
+<style>
+	body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff7f7; /* Light candy pink background */
+    margin: 0;
+    padding: 0;
+    color: #333; /* Darker text color for readability */
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: auto;
+}
+/* Field styling */
+.field {
+    margin-bottom: 20px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #d25d77; /* Candy pink */
+}
+
+/* Input and select styling */
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ff85a2; /* Candy pink border */
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+select:focus {
+    border-color: #ff6f61; /* Darker candy pink */
+    outline: none;
+}
+
+/* Button styling */
+button {
+    background-color: #ff85a2; /* Candy pink */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+p {
+    font-size: 18px; /* Slightly larger text for emphasis */
+    line-height: 1.8; /* Improved readability with extra spacing between lines */
+    color: #4a4a4a; /* Dark gray color for a softer look than pure black */
+    margin: 15px 0; /* Add spacing above and below paragraphs */
+    padding: 12px; /* Add padding inside the paragraph */
+    background-color: #fff; /* Crisp white background for clear readability */
+    border: 1px solid #f4a1c1; /* Soft pink border matching the theme */
+    border-radius: 8px; /* Rounded corners for a friendly appearance */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth and contrast */
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition for interactive effects */
+}
+
+p:hover {
+    background-color: #fbe8e8; /* Light pink background on hover for interaction feedback */
+    border-color: #e60073; /* Darker pink border on hover */
+}
+
+button:hover {
+    background-color: #ff6f61; /* Slightly darker candy pink */
+}
+
+	
+h1, h2 {
+    color: #d25d77; /* Candy pink */
+    text-align: center;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+/* Container for specific content */
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+ 
+
+/* Navbar container */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+</style>
+</head>
+<body>
+    <div class = "navbar">
+        <a href="{{ url_for('base') }}">Home</a>
+        <a href="{{ url_for('get_segment') }}">Customer Segmentation</a>
+	
+	<div class="dropdown">
+        <button class="dropbtn">Price Optimization</button>
+		<i class="fa fa-caret-down"></i>
+        <div class="dropdown-content">
+            <a href="{{ url_for('WO_price') }}">Price Elasticity - Well Off Segment</a>
+            <a href="{{ url_for('CF_price') }}">Price Elasticity - Career Focused Segment</a>
+            <a href="{{ url_for('S_price') }}">Price Elasticity - Standard Segment</a>
+			<a href="{{ url_for('FO_price') }}">Price Elasticity - Fewer Opportunities Segment</a>
+        </div>
+    </div>
+         
+    </div>
+    <hr>
+    <div>
+	<h2>Optimize Prices, Understand Customers, Elevate Brands.<br />
+							Conveys a smart and intuitive approach to pricing strategies combined with deep customer understanding.</h2>
+        {% block content %} 
+		
+		{% endblock %}
+    </div>
+</body>
+</html>

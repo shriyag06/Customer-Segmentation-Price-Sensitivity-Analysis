@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	
+	<head>
+		<title> {% extends 'base.html' %} {% block title %}Price Optimization Strategies {% endblock %} </title>
+		<meta charset="utf-8" />
+		
+	</head>
+	<body>
+
+
+{% block content %}
+<h1>Discover How Your Customers Respond to Price Changes</h1>
+<h2>Understanding how different segments of your customers respond to price changes is crucial for optimizing your pricing strategy. With our Price Sensitivity Analyzer, you can input any price point and instantly determine whether a specific customer segment is elastic or inelastic towards making a purchase.</h2>
+<h1>Start Analyzing Now!</h1>
+<h2>Enter your desired price point below and discover how your customers will respond. Make data-driven decisions to enhance your pricing strategy today.</h2>
+<h2>Well Off Segment</h2>
+
+<form method="post" action="{{url_for('WO_price')}}">
+<div class="field half">
+<p>Enter a value between 0.50 to 3.50</p>
+<label for="pp">Price Point</label>
+<input type="text" name="pp" id="pp" />
+<p>For the given price point the well-off segment customers are  <b color = "red">{{ price_results }} </b>. 
+The customers are inelastic till $1.45, which means that you can keep increasing price till $1.45
+the likelihood of purchasing remains relatively stable.</p>
+</div>
+<button type ="submit"> Get Results </button>
+</form>
+
+
+
+<h2>Career Focused Segment</h2>
+<form method="post" action="{{url_for('CF_price')}}">
+<div class="field half">
+<p>Enter a value between 0.50 to 3.50</p>
+<label for="pp1">Price Point</label>
+<input type="text" name="pp1" id="pp1" />
+<p>For the given price point the career focused segment customers are {{ price_result1 }}. 
+The customers are inelastic till $1.38, which means that you can keep increasing price till $1.38 
+the likelihood of purchasing remains relatively stable.</p>
+</div>
+<button type ="submit"> Get Results </button>
+</form>
+
+
+
+
+<h2>Standard Segment</h2>
+<form method="post" action="{{url_for('S_price')}}">
+<div class="field half">
+<p>Enter a value between 0.50 to 3.50</p>
+<label for="pp2">Price Point</label>
+<input type="text" name="pp2" id="pp2" />
+<p>For the given price point the standard segment customers are {{ price_result2 }}. 
+The customers are inelastic till $1.22, which means that you can keep increasing price till $1.22 
+the likelihood of purchasing remains relatively stable.</p>
+</div>
+<button type ="submit"> Get Results </button>
+</form>
+
+
+
+<h2>Fewer Opportunities Segment</h2>
+<form method="post" action="{{url_for('FO_price')}}">
+<div class="field half">
+<p>Enter a value between 0.50 to 3.50</p>
+<label for="pp3">Price Point</label>
+<input type="text" name="pp3" id="pp3" />
+<p>For the given price point the fewer opportunities segment customers are {{ price_result3 }}. 
+The customers are inelastic till $1.22, which means that you can keep increasing price till $1.22 
+the likelihood of purchasing remains relatively stable.</p>
+</div>
+<button type ="submit"> Get Results </button>
+</form>
+
+
+
+{% endblock %}
+
+   
+	</body>
+</html>
